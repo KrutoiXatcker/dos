@@ -1,4 +1,4 @@
-# DOS_HTTP_1
+# DOS_HTTP
 
 Простая многопоточная утилита на C++ для тестирования нагрузки на веб-сервер по протоколу HTTP.
 
@@ -23,3 +23,39 @@
 
 ```bash
 gcc -o dos dos.cpp -lpthread
+```
+№# Запуск
+
+./load_tester <host:port>
+
+Пример:
+./load_tester localhost:8080
+
+Если сервер доступен, вы увидите примерно такой вывод:
+
+Testing server at localhost:8080
+Starting load test with 1000 threads...
+Load test completed!
+Total requests: 999500
+Failed requests: 500
+Success rate: 99.95%
+
+Если сервер не отвечает, будет сообщение:
+
+Cannot connect to server at localhost:8080
+1. Make sure server is running
+2. Check firewall settings
+
+## Вывод программы
+
+После завершения теста отображается:
+- Общее количество запросов
+- Количество неудачных попыток
+- Процент успешных соединений
+
+## Важно
+
+⚠️ Используйте только для тестирования своих серверов в контролируемой среде!
+Этот инструмент может создать значительную нагрузку на сервер. Неправильное использование может быть расценено как DoS-атака.
+
+
